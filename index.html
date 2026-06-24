@@ -48,6 +48,7 @@
     <a href="#privacy"   class="nav-pill">🔐 Privacy Policy</a>
     <a href="#copyright" class="nav-pill">©️ Copyright</a>
     <a href="#contatti"  class="nav-pill">✉️ Contatti</a>
+    <a href="#comandi"   class="nav-pill">🤖 Comandi</a>
   </nav>
 
   <!-- ═══════════════════ TERMINI DI SERVIZIO ═══════════════════ -->
@@ -376,6 +377,107 @@
     </div>
 
     
+  </section>
+
+  <!-- ═══════════════════ COMANDI ═══════════════════ -->
+  <section id="comandi" class="card">
+    <div class="card-header card-header--center">
+      <div class="card-icon">🤖</div>
+      <h2>Comandi</h2>
+      <span class="last-updated">v34 · 70+ comandi</span>
+    </div>
+
+    <p style="text-align:center; max-width:540px; margin:0 auto 8px;">
+      Tutti i comandi sono slash command: scrivi <code>/</code> in qualsiasi
+      canale e Discord ti mostra la lista con i suggerimenti. Qui sotto trovi
+      una panoramica organizzata per categoria.
+    </p>
+
+    <h3>🎵 Musica</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/play</code> Suona musica</div>
+      <div class="file-pill"><code>/join</code> Entra nel vocale</div>
+      <div class="file-pill"><code>/leave</code> Esce dal vocale</div>
+      <div class="file-pill"><code>/queue</code> Mostra la coda</div>
+      <div class="file-pill"><code>/skip</code> Salta brano</div>
+      <div class="file-pill"><code>/stop</code> Ferma e svuota la coda</div>
+      <div class="file-pill"><code>/pause</code> / <code>/resume</code> Pausa e riprendi</div>
+      <div class="file-pill"><code>/seek</code> Salta a un punto del brano</div>
+      <div class="file-pill"><code>/shuffle</code> Mischia la coda</div>
+      <div class="file-pill"><code>/remove</code> Rimuove un brano dalla coda</div>
+      <div class="file-pill"><code>/volume</code> Regola il volume</div>
+      <div class="file-pill"><code>/loop</code> Ripete il brano</div>
+      <div class="file-pill"><code>/autoplay</code> Continua con brani correlati</div>
+      <div class="file-pill"><code>/nowplaying</code> Brano in corso</div>
+      <div class="file-pill"><code>/duration</code> Durata del brano</div>
+      <div class="file-pill"><code>/reset</code> Rimuove tutti gli effetti</div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:-4px;">
+      + effetti audio: <code>/nightcore</code> <code>/bassboost</code> <code>/slowed</code>
+      <code>/vaporwave</code> <code>/reverb</code> <code>/8d</code> <code>/chipmunk</code>
+      <code>/robot</code> <code>/earrape</code>
+    </p>
+
+    <h3>🛡️ Moderazione</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/warn</code> Assegna un warn</div>
+      <div class="file-pill"><code>/warnings</code> Mostra i warn di un utente</div>
+      <div class="file-pill"><code>/unwarn</code> Rimuove un warn</div>
+      <div class="file-pill"><code>/case</code> Dettagli azione mod.</div>
+      <div class="file-pill"><code>/kick</code> Espelle un utente</div>
+      <div class="file-pill"><code>/ban</code> / <code>/unban</code> Banna o rimuove ban</div>
+      <div class="file-pill"><code>/timeout</code> Silenzia temporaneamente</div>
+      <div class="file-pill"><code>/untimeout</code> Rimuove il timeout</div>
+      <div class="file-pill"><code>/purge</code> Elimina messaggi recenti</div>
+      <div class="file-pill"><code>/modnote</code> Note private staff</div>
+    </div>
+
+    <h3>📈 Livelli & XP</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/rank</code> Il tuo livello e statistiche</div>
+      <div class="file-pill"><code>/leaderboard</code> Classifiche del server</div>
+      <div class="file-pill"><code>/daily</code> XP giornalieri</div>
+      <div class="file-pill"><code>/wheel</code> Ruota della fortuna (ogni 12h)</div>
+      <div class="file-pill"><code>/setlevel</code> Imposta livello/XP (Admin)</div>
+      <div class="file-pill"><code>/reset_daily</code> Resetta cooldown daily</div>
+      <div class="file-pill"><code>/reset_wheel</code> Resetta cooldown ruota</div>
+    </div>
+
+    <h3>🎫 Ticket</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/sendticketpanel</code> Pannello ticket</div>
+      <div class="file-pill"><code>/claim</code> Prende in carico un ticket</div>
+    </div>
+
+    <h3>🎁 Giveaway</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/giveaway</code> Crea un giveaway</div>
+      <div class="file-pill"><code>/glist</code> Giveaway attivi</div>
+      <div class="file-pill"><code>/ginfo</code> Dettagli giveaway</div>
+      <div class="file-pill"><code>/gparticipants</code> Lista partecipanti</div>
+      <div class="file-pill"><code>/reroll</code> Estrae nuovi vincitori</div>
+      <div class="file-pill"><code>/gend</code> Termina un giveaway</div>
+      <div class="file-pill"><code>/gdelete</code> Elimina un giveaway</div>
+    </div>
+
+    <h3>🎲 Utility & Server</h3>
+    <div class="file-grid">
+      <div class="file-pill"><code>/help</code> Lista comandi</div>
+      <div class="file-pill"><code>/ping</code> Latenza del bot</div>
+      <div class="file-pill"><code>/versione</code> Versione corrente</div>
+      <div class="file-pill"><code>/termini</code> Termini & Privacy</div>
+      <div class="file-pill"><code>/serverinfo</code> Info sul server</div>
+      <div class="file-pill"><code>/roleinfo</code> Info su un ruolo</div>
+      <div class="file-pill"><code>/profile</code> Profilo Discord di un utente</div>
+      <div class="file-pill"><code>/invite</code> Link di invito al server</div>
+      <div class="file-pill"><code>/dice</code> Lancia un dado</div>
+      <div class="file-pill"><code>/coinflip</code> Lancia una moneta</div>
+      <div class="file-pill"><code>/configshow</code> Configurazione attiva (Admin)</div>
+    </div>
+
+    <p class="note-small" style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:8px;">
+      I comandi con (Moderatori) o (Admin) richiedono i relativi permessi sul server per essere usati.
+    </p>
   </section>
 </div>
 
