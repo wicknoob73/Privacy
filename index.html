@@ -3,36 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carmelo Bot — Termini di Servizio & Privacy Policy</title>
-  <meta name="description" content="Termini di Servizio e Privacy Policy di Carmelo Bot, il bot Discord per musica, moderazione, livelli e molto altro.">
+  <title>Carmelo Bot — Il tuo bot Discord tutto-in-uno</title>
+  <meta name="description" content="Musica, moderazione, livelli XP, ticket, giveaway e molto altro. Carmelo Bot è il bot Discord per la tua community.">
+
+  <!-- Open Graph / Discord embed -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Carmelo Bot — Il tuo bot Discord tutto-in-uno">
+  <meta property="og:description" content="Musica, moderazione, livelli XP, ticket, giveaway e molto altro. Gratuito e sempre aggiornato.">
+  <meta property="og:image"       content="https://placehold.co/1200x630/0a0c14/4ab3e8?text=Carmelo+Bot">
+  <meta name="theme-color"        content="#4ab3e8">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a0c14'/><text y='24' x='4' font-size='22'>🤖</text></svg>">
+
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 90px 0 72px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: var(--text-primary);
+      margin: 20px 0 18px;
+    }
+    .hero h1 .accent { color: var(--blue); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: flex; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      background: var(--blue);
+      color: var(--bg-base);
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 0.92rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    .btn-primary:hover {
+      background: #66c8f5; color: var(--bg-base);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(74,179,232,0.3);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 0.92rem;
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all var(--ease);
+    }
+    .btn-secondary:hover {
+      color: var(--text-primary);
+      border-color: var(--blue);
+      background: var(--blue-faint);
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex; justify-content: center; gap: 40px;
+      flex-wrap: wrap;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -0.04em;
+      display: block;
+    }
+    .stat-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Section heading */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem; font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--feat-color, var(--blue));
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+      transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+    }
+    .feat-card:hover {
+      border-color: var(--feat-color, var(--blue));
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+    }
+    .feat-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+    .feat-title {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+    .feat-desc { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    .feat-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+    .feat-tag {
+      font-size: 0.72rem; font-family: var(--font-mono);
+      color: var(--feat-color, var(--blue));
+      background: rgba(74,179,232,0.07);
+      border: 1px solid rgba(74,179,232,0.15);
+      border-radius: 4px; padding: 2px 7px;
+    }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 80px; }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--ease);
+    }
+    .faq-item:hover { border-color: var(--border-hover); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 0.95rem;
+      color: var(--text-primary);
+      user-select: none;
+      list-style: none;
+      gap: 16px;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      color: var(--text-muted);
+      transition: transform var(--ease);
+    }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+    details[open] .faq-q { color: var(--blue); }
+    .faq-a {
+      padding: 0 22px 18px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    /* CTA strip */
+    .cta-strip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      padding: 52px 40px;
+      text-align: center;
+      position: relative; overflow: hidden;
+      margin-bottom: 0;
+    }
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 400px; height: 200px;
+      background: radial-gradient(ellipse, rgba(74,179,232,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-strip h2 {
+      font-family: var(--font-display);
+      font-size: 1.9rem; font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 10px;
+    }
+    .cta-strip p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 28px; }
+
+    /* Devs */
+    .devs {
+      display: flex; justify-content: center; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+      margin-top: 52px; margin-bottom: 8px;
+    }
+    .dev-card {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      transition: border-color var(--ease);
+    }
+    .dev-card:hover { border-color: var(--border-hover); }
+    .dev-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--blue-glow); border: 1px solid var(--border-hover);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .dev-name { font-family: var(--font-mono); font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+    .dev-role { font-size: 0.72rem; color: var(--text-muted); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 60px 0 50px; }
+      .stats-row { gap: 24px; }
+      .cta-strip { padding: 36px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="stamp" aria-hidden="true">
-  <svg viewBox="0 0 120 120">
-    <circle cx="60" cy="60" r="54"/>
-    <path id="stamp-arc-top" d="M 60 60 m -42 0 a 42 42 0 0 1 84 0" fill="none"/>
-    <path id="stamp-arc-bot" d="M 60 60 m -42 0 a 42 42 0 0 0 84 0" fill="none"/>
-    <text><textPath href="#stamp-arc-top" startOffset="50%" text-anchor="middle">CARMELO BOT</textPath></text>
-    <text class="stamp-sub" x="60" y="64" text-anchor="middle">DOSSIER</text>
-    <text><textPath href="#stamp-arc-bot" startOffset="50%" text-anchor="middle">DOCUMENTO ATTIVO</textPath></text>
-  </svg>
+<!-- ── Navbar ─────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-logo"><span>Carmelo</span> Bot</a>
+  <ul class="navbar-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="commands.html">Comandi</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+    <li><a href="stats.html">Statistiche</a></li>
+    <li><a href="legal.html">Termini & Privacy</a></li>
+    <li><a href="legal.html#contatti">Contatti</a></li>
+  </ul>
+  <a href="#" class="navbar-cta">+ Aggiungi al server</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="commands.html">Comandi</a>
+  <a href="changelog.html">Changelog</a>
+  <a href="stats.html">Statistiche</a>
+  <a href="legal.html">Termini & Privacy</a>
+  <a href="legal.html#contatti">Contatti</a>
+  <a href="#" class="mobile-cta">+ Aggiungi al server</a>
 </div>
 
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<!-- ── Hero ──────────────────────────────────────────── -->
 <div class="container">
   <header class="hero">
-    <div class="hero-badge" id="bot-status-badge">
-      <span class="dot" id="bot-status-dot"></span>
-      <span id="bot-status-text">Verifica stato...</span>
+    <div id="status-badge" class="status-badge">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Verifica stato…</span>
     </div>
-    <h1><span>Carmelo</span> Bot</h1>
+
+    <h1>Il bot che la tua<br>community <span class="accent">merita.</span></h1>
+
     <p class="hero-sub">
-      Termini di Servizio e Privacy Policy — tutto quello che devi sapere
-      sull'utilizzo del bot e sui dati che raccoglie.
+      Musica, moderazione, livelli XP, ticket e giveaway —
+      tutto in un unico bot, gratuito e sempre aggiornato.
     </p>
-    <div class="hero-chips">
+
+    <div class="hero-cta">
+      <a href="#" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.04.036.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .085-.026c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Aggiungi al server
+      </a>
+      <a href="commands.html" class="btn-secondary">Vedi i comandi →</a>
+    </div>
+
+    <div class="chips">
       <span class="chip">🎵 Musica</span>
       <span class="chip">🛡️ Moderazione</span>
       <span class="chip">📈 Livelli & XP</span>
@@ -42,514 +308,296 @@
     </div>
   </header>
 
-  <!-- Navigazione sezioni -->
-  <nav class="section-nav" aria-label="Sezioni">
-    <a href="#tos"       class="nav-pill active">📄 Termini di Servizio</a>
-    <a href="#privacy"   class="nav-pill">🔐 Privacy Policy</a>
-    <a href="#copyright" class="nav-pill">©️ Copyright</a>
-    <a href="#contatti"  class="nav-pill">✉️ Contatti</a>
-    <a href="#comandi"   class="nav-pill">🤖 Comandi</a>
-  </nav>
-
-  <!-- ═══════════════════ TERMINI DI SERVIZIO ═══════════════════ -->
-  <section id="tos" class="card">
-    <div class="card-header card-header--center">
-      <div class="card-icon">📄</div>
-      <h2>Termini di Servizio</h2>
-      <span class="last-updated">Aggiornato: 13 Giu 2026</span>
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-num">60+</span>
+      <span class="stat-lbl">Comandi</span>
     </div>
-
-    <h3>1. Accettazione dei termini</h3>
-    <p>
-      Utilizzando Carmelo Bot su Discord, accetti integralmente i presenti Termini di Servizio.
-      Se non accetti questi termini, ti invitiamo a non utilizzare il bot.
-    </p>
-
-    <h3>2. Descrizione del servizio</h3>
-    <p>
-      Carmelo Bot è un bot Discord gratuito sviluppato da
-      <strong style="color: var(--text-primary);">wicknoob73 &amp; jeimaster.</strong>
-      — include le seguenti funzionalità:
-    </p>
-    <ul>
-      <li>Riproduzione musicale tramite YouTube e Spotify</li>
-      <li>Strumenti di moderazione del server</li>
-      <li>Sistema ticket con supporto staff</li>
-      <li>Sistema livelli, XP e statistiche utenti</li>
-      <li>Giveaway con estrazione automatica dei vincitori</li>
-      <li>Comandi utility e intrattenimento</li>
-    </ul>
-
-    <h3>3. Utilizzo consentito</h3>
-    <p>Gli utenti si impegnano a non usare il bot per:</p>
-    <ul>
-      <li>Attività illegali di qualsiasi natura</li>
-      <li>Spam, flood o abuso dei servizi Discord</li>
-      <li>Tentativi di exploit, injection o danneggiamento del bot</li>
-      <li>Violazione dei Termini di Servizio di Discord</li>
-    </ul>
-
-    <h3>4. Limitazione di responsabilità</h3>
-    <p>
-      Carmelo Bot è fornito <em>"così com'è"</em>, senza garanzie di disponibilità continua,
-      assenza di bug o integrità dei dati. Lo sviluppatore non è responsabile per
-      eventuali danni, perdite di dati o disservizi derivanti dall'utilizzo del bot.
-    </p>
-
-    <h3>5. Terminazione del servizio</h3>
-    <p>
-      Lo sviluppatore si riserva il diritto di sospendere o terminare l'accesso al bot
-      in qualsiasi momento, senza preavviso e a propria discrezione.
-    </p>
-
-    <h3>6. Revoca per utilizzo improprio</h3>
-    <p>
-      Qualora gli sviluppatori ritengano, a propria esclusiva discrezione, che il bot venga
-      utilizzato in modo improprio, abusivo o contrario allo spirito dei presenti Termini,
-      si riservano il diritto di revocarne l'accesso a un utente, server o community
-      <strong style="color:var(--text-primary);">senza preavviso e senza che ciò comporti
-      alcuna ripercussione legale</strong> per gli sviluppatori stessi.
-    </p>
-
-    <h3>7. Modifiche ai termini</h3>
-    <p>
-      I presenti Termini di Servizio possono essere aggiornati in qualsiasi momento.
-      Continuando a usare il bot dopo eventuali modifiche, l'utente ne accetta automaticamente i nuovi termini.
-    </p>
-
-    <h3>8. Clausola bellica <span style="font-size:0.7em; color:var(--text-muted); text-transform:none; letter-spacing:0;">(scherzo, ovviamente)</span></h3>
-    <p>
-      Nel remoto ed improbabile caso in cui Carmelo Bot dovesse entrare in guerra,
-      <strong style="color:var(--text-primary);">l'utente che ha accettato questi Termini</strong>
-      si offre volontario per essere mandato in prima linea sul fronte,
-      a tutela della sicurezza di
-      <strong style="color:var(--text-primary);">wicknoob73 &amp; jeimaster.</strong> e dell'intera community.
-      Questa clausola è puramente goliardica e non ha alcun valore legale. 🫡
-    </p>
-  </section>
-
-  <!-- ═══════════════════ PRIVACY POLICY ═══════════════════════ -->
-  <section id="privacy" class="card">
-    <div class="card-header card-header--center">
-      <div class="card-icon">🔐</div>
-      <h2>Privacy Policy</h2>
-      <span class="last-updated">Aggiornato: 13 Giu 2026</span>
+    <div class="stat-item">
+      <span class="stat-num">v58</span>
+      <span class="stat-lbl">Versione</span>
     </div>
-
-    <h3>1. Dati raccolti</h3>
-    <p>
-      Carmelo Bot raccoglie esclusivamente i dati necessari al corretto funzionamento
-      del servizio. Nessun dato personale sensibile viene memorizzato.
-    </p>
-
-    <h3>2. Identificatori Discord</h3>
-    <ul>
-      <li>ID server (guild)</li>
-      <li>ID utenti</li>
-      <li>ID canali</li>
-    </ul>
-    <p>
-      Questi identificatori vengono usati come chiavi nei file di configurazione
-      e nel database, senza mai essere associati a informazioni personali reali.
-    </p>
-
-    <h3>3. Statistiche utenti</h3>
-    <p>Memorizzate in <code>stats.json</code>:</p>
-    <div class="file-grid">
-      <div class="file-pill">📨 Messaggi inviati</div>
-      <div class="file-pill">📢 Messaggi per canale</div>
-      <div class="file-pill">🎙️ Minuti in vocale</div>
-      <div class="file-pill">👍 Reazioni aggiunte</div>
-      <div class="file-pill">❤️ Reazioni ricevute</div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">Server</span>
     </div>
-
-    <h3>4. XP e livelli</h3>
-    <p>Memorizzati in <code>levels.json</code>:</p>
-    <div class="file-grid">
-      <div class="file-pill">⚡ XP attuali</div>
-      <div class="file-pill">🏆 Livello corrente</div>
-      <div class="file-pill">📊 XP totali accumulati</div>
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-lbl">Gratuito</span>
     </div>
+  </div>
 
-    <h3>5. Moderazione</h3>
-    <p>Memorizzati in <code>warnings.json</code> e <code>mod_logs.json</code>:</p>
-    <ul>
-      <li>ID utente ammonito e motivo del warn</li>
-      <li>ID moderatore responsabile dell'azione</li>
-      <li>Data, ora e tipo di azione di moderazione</li>
-    </ul>
+  <!-- Features -->
+  <div class="section-label">Funzionalità</div>
+  <h2 class="section-title">Tutto ciò di cui hai bisogno.</h2>
+  <p class="section-sub">Ogni funzione è pensata per rendere il tuo server più vivo e facile da gestire.</p>
 
-    <h3>6. Note dello staff</h3>
-    <p>Memorizzate in <code>mod_notes.json</code>:</p>
-    <p>
-      Lo staff di moderazione può annotare note testuali libere associate a un utente
-      del server, ad esempio per tenere traccia di comportamenti passati non ancora
-      sanzionabili con un warn formale.
-    </p>
-    <ul>
-      <li>ID utente a cui si riferisce la nota</li>
-      <li>Testo della nota, scritto liberamente dal moderatore</li>
-      <li>ID del moderatore autore e data di inserimento</li>
-    </ul>
-    <p>
-      Queste note sono visibili solo allo staff del server e non vengono mai
-      condivise tra server diversi.
-    </p>
-
-    <h3>7. Configurazione server</h3>
-    <p>Memorizzata in <code>config.json</code>:</p>
-    <div class="file-grid">
-      <div class="file-pill">📣 Canale level-up</div>
-      <div class="file-pill">👋 Canale benvenuto</div>
-      <div class="file-pill">🚪 Canale addio</div>
-      <div class="file-pill">🏅 Ruolo automatico</div>
-      <div class="file-pill">🎫 Contatore ticket</div>
-    </div>
-
-    <h3>8. Cooldown comandi</h3>
-    <p>
-      I file <code>daily_cooldowns.json</code> e <code>wheel_cooldowns.json</code>
-      contengono ID utenti/server e la data dell'ultimo utilizzo di determinati comandi.
-      Sono dati temporanei necessari al corretto funzionamento del rate-limiting.
-    </p>
-
-    <h3>9. Compleanni</h3>
-    <p>Memorizzati in <code>birthdays.json</code>:</p>
-    <p>
-      Su richiesta volontaria dell'utente tramite apposito comando, il bot può
-      memorizzare giorno e mese di nascita per inviare un messaggio di auguri
-      automatico nel server. L'anno di nascita non viene richiesto né memorizzato.
-    </p>
-    <ul>
-      <li>ID utente, ID server</li>
-      <li>Giorno e mese di nascita</li>
-    </ul>
-    <p>
-      Il dato è fornito spontaneamente e può essere rimosso in qualsiasi momento
-      contattando lo staff o gli sviluppatori.
-    </p>
-
-    <h3>10. Giveaway</h3>
-    <p>Memorizzati nel database <code>giveaways.db</code> (SQLite):</p>
-    <ul>
-      <li>ID server, canale e messaggio del giveaway</li>
-      <li>Premio, descrizione e URL immagine opzionale</li>
-      <li>Numero di vincitori e data di fine</li>
-      <li>ID del creatore, dei partecipanti e dei vincitori</li>
-    </ul>
-
-    <h3>11. Immagini generate al volo</h3>
-    <p>
-      Alcuni comandi (card di livello, messaggi di benvenuto/addio, biglietti utente)
-      generano un'immagine componendo l'avatar pubblico Discord dell'utente con testo
-      ed elementi grafici. Queste immagini vengono create al momento e inviate nel
-      canale: non vengono salvate permanentemente su disco dal bot, oltre la durata
-      necessaria a comporle e inviarle.
-    </p>
-
-    <h3>12. Account Spotify del bot</h3>
-    <p>
-      Per riprodurre brani da Spotify, il bot utilizza un proprio account/applicazione
-      Spotify autenticata via OAuth, con token salvato localmente sul server che ospita
-      il bot. Questo account appartiene agli sviluppatori: gli utenti del server non
-      collegano né esporrebbero alcun account Spotify personale usando i comandi musicali.
-    </p>
-
-    <h3>13. Condivisione dati</h3>
-    <p>
-      Carmelo Bot non vende, cede né condivide dati personali con terze parti
-      a scopo commerciale o di profilazione.
-    </p>
-
-    <h3>14. Sicurezza</h3>
-    <p>
-      Lo sviluppatore adotta misure ragionevoli per proteggere i dati memorizzati,
-      ma non può garantire sicurezza assoluta contro accessi non autorizzati.
-    </p>
-
-    <h3>15. Rimozione dati</h3>
-    <p>
-      Gli amministratori di un server possono richiedere la cancellazione di tutti i
-      dati relativi al proprio server contattando direttamente lo sviluppatore.
-    </p>
-
-    <h3>16. Contatti</h3>
-    <p>Per qualsiasi domanda relativa alla privacy, contatta gli sviluppatori su Discord:</p>
-    <div class="contact-box">
-      <div class="avatar">⚙️</div>
-      <div>
-        <div class="name">wicknoob73 &amp; jeimaster.</div>
-        <div class="role">Sviluppatori — Carmelo Bot</div>
+  <div class="features-grid">
+    <div class="feat-card" style="--feat-color:#4ab3e8;">
+      <span class="feat-icon">🎵</span>
+      <div class="feat-title">Musica di qualità</div>
+      <p class="feat-desc">Suona musica da YouTube e Spotify, con effetti audio, coda avanzata e autoplay intelligente.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#4ab3e8;border-color:rgba(74,179,232,0.2);">/play</span>
+        <span class="feat-tag" style="color:#4ab3e8;border-color:rgba(74,179,232,0.2);">/queue</span>
+        <span class="feat-tag" style="color:#4ab3e8;border-color:rgba(74,179,232,0.2);">/bassboost</span>
+        <span class="feat-tag" style="color:#4ab3e8;border-color:rgba(74,179,232,0.2);">+9 effetti</span>
       </div>
     </div>
-  </section>
-
-  <!-- ═══════════════════ COPYRIGHT ════════════════════════════ -->
-  <section id="copyright" class="card">
-    <div class="card-header card-header--center">
-      <div class="card-icon">©️</div>
-      <h2>Copyright</h2>
-      <span class="last-updated">Aggiornato: 13 Giu 2026</span>
-    </div>
-
-    <h3>Licenza</h3>
-    <p>
-      Carmelo Bot — inclusi codice sorgente, grafica, documentazione e contenuti correlati —
-      è distribuito sotto licenza
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
-        Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
-      </a>.
-    </p>
-
-    <div class="license-banner">
-      <div class="license-badges">
-        <span class="license-badge">BY</span>
-        <span class="license-badge">NC</span>
-        <span class="license-badge">SA</span>
-      </div>
-      <div class="license-name">CC BY-NC-SA 4.0</div>
-      <div class="license-full">Creative Commons — Attribuzione — Non commerciale — Stessa licenza</div>
-    </div>
-
-    <h3>Cosa puoi fare</h3>
-    <ul>
-      <li><strong style="color:var(--accent-teal)">Condividere</strong> — copiare e ridistribuire il materiale in qualsiasi formato</li>
-      <li><strong style="color:var(--accent-teal)">Modificare</strong> — remixare, trasformare o basarti sul materiale</li>
-    </ul>
-
-    <h3>A queste condizioni</h3>
-    <ul>
-      <li><strong style="color:var(--blurple-lt)">Attribuzione (BY)</strong> — devi riconoscere la paternità dell'opera e indicare gli autori originali: <strong>wicknoob73 &amp; jeimaster.</strong></li>
-      <li><strong style="color:var(--blurple-lt)">Non commerciale (NC)</strong> — non puoi usare il materiale per scopi commerciali o a fini di lucro</li>
-      <li><strong style="color:var(--blurple-lt)">Stessa licenza (SA)</strong> — se modifichi o ridistribuisci il materiale, devi farlo sotto la stessa licenza CC BY-NC-SA 4.0</li>
-    </ul>
-
-    <h3>Diritti riservati</h3>
-    <p>
-      Il nome <strong>Carmelo Bot</strong>, il logo e l'identità visiva sono di esclusiva proprietà
-      degli sviluppatori. Non è consentito l'uso del nome o del logo per rappresentare
-      prodotti derivati senza esplicita autorizzazione scritta.
-    </p>
-
-    <h3>Esonero di garanzia</h3>
-    <p>
-      Questa licenza non limita né rimuove le clausole di limitazione di responsabilità
-      presenti nei Termini di Servizio. Il materiale è fornito senza alcuna garanzia,
-      nei limiti consentiti dalla legge applicabile.
-    </p>
-
-    <div class="contact-box" style="margin-top:24px">
-      <div class="avatar">⚖️</div>
-      <div>
-        <div class="name">&copy; 2026 wicknoob73 &amp; jeimaster.</div>
-        <div class="role">Tutti i diritti riservati — Carmelo Bot</div>
+    <div class="feat-card" style="--feat-color:#e86060;">
+      <span class="feat-icon">🛡️</span>
+      <div class="feat-title">Moderazione completa</div>
+      <p class="feat-desc">Warn, ban, timeout, purge e log dettagliati — tutto tracciato e accessibile dallo staff.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#e86060;border-color:rgba(232,96,96,0.2);">/warn</span>
+        <span class="feat-tag" style="color:#e86060;border-color:rgba(232,96,96,0.2);">/ban</span>
+        <span class="feat-tag" style="color:#e86060;border-color:rgba(232,96,96,0.2);">/purge</span>
+        <span class="feat-tag" style="color:#e86060;border-color:rgba(232,96,96,0.2);">/modnote</span>
       </div>
     </div>
-  </section>
-
-  <!-- ═══════════════════ CONTATTI ═════════════════════════════ -->
-  <section id="contatti" class="card">
-    <div class="card-header card-header--center">
-      <div class="card-icon">✉️</div>
-      <h2>Contatti</h2>
-      <span class="last-updated">Aggiornato: 13 Giu 2026</span>
-    </div>
-
-    <p style="text-align:center; max-width:480px; margin:0 auto 8px;">
-      Per domande, segnalazioni, richieste di rimozione dati o collaborazioni,
-      puoi contattare direttamente gli sviluppatori del bot.
-    </p>
-
-    <div class="contacts-grid">
-      <div class="contact-card">
-        <div class="contact-avatar">🧑‍💻</div>
-        <div class="contact-discord">wicknoob73</div>
-        <div class="contact-role">Sviluppatore — Carmelo Bot</div>
-        <a class="contact-email" href="mailto:wicknoob73@example.com">slesioalan@gmail.com</a>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-avatar">🧑🏿‍💻</div>
-        <div class="contact-discord">jeimaster.</div>
-        <div class="contact-role">Sviluppatore — Carmelo Bot</div>
-        <a class="contact-email" href="mailto:jeimaster@example.com">jeison.barrial12@gmail.com</a>
+    <div class="feat-card" style="--feat-color:#4de89a;">
+      <span class="feat-icon">📈</span>
+      <div class="feat-title">Livelli & XP</div>
+      <p class="feat-desc">Sistema di progressione con daily bonus, ruota della fortuna e classifiche del server.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#4de89a;border-color:rgba(77,232,154,0.2);">/rank</span>
+        <span class="feat-tag" style="color:#4de89a;border-color:rgba(77,232,154,0.2);">/daily</span>
+        <span class="feat-tag" style="color:#4de89a;border-color:rgba(77,232,154,0.2);">/wheel</span>
+        <span class="feat-tag" style="color:#4de89a;border-color:rgba(77,232,154,0.2);">/leaderboard</span>
       </div>
     </div>
-
-    
-  </section>
-
-  <!-- ═══════════════════ COMANDI ═══════════════════ -->
-  <section id="comandi" class="card">
-    <div class="card-header card-header--center">
-      <div class="card-icon">🤖</div>
-      <h2>Comandi</h2>
-      <span class="last-updated">v34 · 70+ comandi</span>
+    <div class="feat-card" style="--feat-color:#d4a947;">
+      <span class="feat-icon">🎫</span>
+      <div class="feat-title">Sistema Ticket</div>
+      <p class="feat-desc">Pannello ticket integrato per il supporto agli utenti, con claim e gestione staff dedicata.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#d4a947;border-color:rgba(212,169,71,0.2);">/sendticketpanel</span>
+        <span class="feat-tag" style="color:#d4a947;border-color:rgba(212,169,71,0.2);">/claim</span>
+      </div>
     </div>
-
-    <p style="text-align:center; max-width:540px; margin:0 auto 8px;">
-      Tutti i comandi sono slash command: scrivi <code>/</code> in qualsiasi
-      canale e Discord ti mostra la lista con i suggerimenti. Qui sotto trovi
-      una panoramica organizzata per categoria.
-    </p>
-
-    <h3>🎵 Musica</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/play</code> Suona musica</div>
-      <div class="file-pill"><code>/join</code> Entra nel vocale</div>
-      <div class="file-pill"><code>/leave</code> Esce dal vocale</div>
-      <div class="file-pill"><code>/queue</code> Mostra la coda</div>
-      <div class="file-pill"><code>/skip</code> Salta brano</div>
-      <div class="file-pill"><code>/stop</code> Ferma e svuota la coda</div>
-      <div class="file-pill"><code>/pause</code> / <code>/resume</code> Pausa e riprendi</div>
-      <div class="file-pill"><code>/seek</code> Salta a un punto del brano</div>
-      <div class="file-pill"><code>/shuffle</code> Mischia la coda</div>
-      <div class="file-pill"><code>/remove</code> Rimuove un brano dalla coda</div>
-      <div class="file-pill"><code>/volume</code> Regola il volume</div>
-      <div class="file-pill"><code>/loop</code> Ripete il brano</div>
-      <div class="file-pill"><code>/autoplay</code> Continua con brani correlati</div>
-      <div class="file-pill"><code>/nowplaying</code> Brano in corso</div>
-      <div class="file-pill"><code>/duration</code> Durata del brano</div>
-      <div class="file-pill"><code>/reset</code> Rimuove tutti gli effetti</div>
+    <div class="feat-card" style="--feat-color:#a78bfa;">
+      <span class="feat-icon">🎁</span>
+      <div class="feat-title">Giveaway automatici</div>
+      <p class="feat-desc">Crea e gestisci giveaway con estrazione automatica, reroll dei vincitori e lista partecipanti.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.2);">/giveaway</span>
+        <span class="feat-tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.2);">/reroll</span>
+        <span class="feat-tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.2);">/glist</span>
+      </div>
     </div>
-    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:-4px;">
-      + effetti audio: <code>/nightcore</code> <code>/bassboost</code> <code>/slowed</code>
-      <code>/vaporwave</code> <code>/reverb</code> <code>/8d</code> <code>/chipmunk</code>
-      <code>/robot</code> <code>/earrape</code>
-    </p>
-
-    <h3>🛡️ Moderazione</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/warn</code> Assegna un warn</div>
-      <div class="file-pill"><code>/warnings</code> Mostra i warn di un utente</div>
-      <div class="file-pill"><code>/unwarn</code> Rimuove un warn</div>
-      <div class="file-pill"><code>/case</code> Dettagli azione mod.</div>
-      <div class="file-pill"><code>/kick</code> Espelle un utente</div>
-      <div class="file-pill"><code>/ban</code> / <code>/unban</code> Banna o rimuove ban</div>
-      <div class="file-pill"><code>/timeout</code> Silenzia temporaneamente</div>
-      <div class="file-pill"><code>/untimeout</code> Rimuove il timeout</div>
-      <div class="file-pill"><code>/purge</code> Elimina messaggi recenti</div>
-      <div class="file-pill"><code>/modnote</code> Note private staff</div>
+    <div class="feat-card" style="--feat-color:#2dd4bf;">
+      <span class="feat-icon">🎲</span>
+      <div class="feat-title">Utility & Server</div>
+      <p class="feat-desc">Info server, profilo utenti, ping, dado, coinflip e configurazione admin a portata di slash.</p>
+      <div class="feat-tags">
+        <span class="feat-tag" style="color:#2dd4bf;border-color:rgba(45,212,191,0.2);">/serverinfo</span>
+        <span class="feat-tag" style="color:#2dd4bf;border-color:rgba(45,212,191,0.2);">/profile</span>
+        <span class="feat-tag" style="color:#2dd4bf;border-color:rgba(45,212,191,0.2);">/ping</span>
+      </div>
     </div>
+  </div>
 
-    <h3>📈 Livelli & XP</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/rank</code> Il tuo livello e statistiche</div>
-      <div class="file-pill"><code>/leaderboard</code> Classifiche del server</div>
-      <div class="file-pill"><code>/daily</code> XP giornalieri</div>
-      <div class="file-pill"><code>/wheel</code> Ruota della fortuna (ogni 12h)</div>
-      <div class="file-pill"><code>/setlevel</code> Imposta livello/XP (Admin)</div>
-      <div class="file-pill"><code>/reset_daily</code> Resetta cooldown daily</div>
-      <div class="file-pill"><code>/reset_wheel</code> Resetta cooldown ruota</div>
+  <!-- FAQ -->
+  <div class="section-label">Domande frequenti</div>
+  <h2 class="section-title">Hai dubbi?</h2>
+  <p class="section-sub">Le risposte alle domande più comuni su Carmelo Bot.</p>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary class="faq-q">
+        Carmelo Bot è gratuito?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Sì, completamente gratuito. Non ci sono piani premium, abbonamenti o funzioni a pagamento. Tutte le funzionalità sono accessibili senza costi.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">
+        Funziona con Spotify?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Sì, ma solo brani singoli. Puoi usare <code>/play</code> con il link diretto a un brano Spotify e il bot lo riproduce tramite YouTube. Playlist e album Spotify non sono supportati.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">
+        Come configuro il sistema ticket?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Usa il comando <code>/sendticketpanel</code> nel canale in cui vuoi far apparire il pannello. Gli utenti potranno aprire ticket cliccando il pulsante, e i moderatori potranno prenderli in carico con <code>/claim</code>.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">
+        Quali permessi richiede il bot?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Il bot richiede i permessi standard per leggere e inviare messaggi, gestire canali (per i ticket), entrare e parlare nei canali vocali (per la musica), e gestire i ruoli per alcune funzioni di moderazione.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">
+        Come funziona il sistema XP?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Gli utenti guadagnano XP mandando messaggi e stando nei canali vocali. Ogni giorno puoi riscattare XP extra con <code>/daily</code> e tentare la fortuna con <code>/wheel</code> ogni 12 ore. Visualizza i tuoi progressi con <code>/rank</code>.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">
+        Il bot salva dati personali?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="faq-a">Il bot salva solo ID Discord (utente, server, canali) e dati di gioco (XP, livello, statistiche). Nessun dato personale sensibile. Puoi richiedere la cancellazione dei tuoi dati in qualsiasi momento — leggi la <a href="legal.html#privacy">Privacy Policy</a> per i dettagli.</div>
+    </details>
+  </div>
+
+  <!-- CTA strip -->
+  <div class="cta-strip">
+    <h2>Pronto a portare il tuo server<br>al <span style="color:var(--blue);">livello successivo</span>?</h2>
+    <p>Gratuito, semplice da configurare, sempre aggiornato da wicknoob73 & jeimaster.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.04.036.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .085-.026c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Aggiungi al server
+      </a>
+      <a href="commands.html" class="btn-secondary">Esplora i comandi</a>
     </div>
+  </div>
 
-    <h3>🎫 Ticket</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/sendticketpanel</code> Pannello ticket</div>
-      <div class="file-pill"><code>/claim</code> Prende in carico un ticket</div>
+  <!-- Devs -->
+  <div class="devs">
+    <span style="font-size:0.78rem;color:var(--text-muted);font-family:var(--font-mono);">Sviluppato da</span>
+    <div class="dev-card">
+      <div class="dev-avatar">👾</div>
+      <div><div class="dev-name">wicknoob73</div><div class="dev-role">Developer</div></div>
     </div>
-
-    <h3>🎁 Giveaway</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/giveaway</code> Crea un giveaway</div>
-      <div class="file-pill"><code>/glist</code> Giveaway attivi</div>
-      <div class="file-pill"><code>/ginfo</code> Dettagli giveaway</div>
-      <div class="file-pill"><code>/gparticipants</code> Lista partecipanti</div>
-      <div class="file-pill"><code>/reroll</code> Estrae nuovi vincitori</div>
-      <div class="file-pill"><code>/gend</code> Termina un giveaway</div>
-      <div class="file-pill"><code>/gdelete</code> Elimina un giveaway</div>
+    <div class="dev-card">
+      <div class="dev-avatar">🎮</div>
+      <div><div class="dev-name">jeimaster.</div><div class="dev-role">Developer</div></div>
     </div>
+  </div>
 
-    <h3>🎲 Utility & Server</h3>
-    <div class="file-grid">
-      <div class="file-pill"><code>/help</code> Lista comandi</div>
-      <div class="file-pill"><code>/ping</code> Latenza del bot</div>
-      <div class="file-pill"><code>/versione</code> Versione corrente</div>
-      <div class="file-pill"><code>/termini</code> Termini & Privacy</div>
-      <div class="file-pill"><code>/serverinfo</code> Info sul server</div>
-      <div class="file-pill"><code>/roleinfo</code> Info su un ruolo</div>
-      <div class="file-pill"><code>/profile</code> Profilo Discord di un utente</div>
-      <div class="file-pill"><code>/invite</code> Link di invito al server</div>
-      <div class="file-pill"><code>/dice</code> Lancia un dado</div>
-      <div class="file-pill"><code>/coinflip</code> Lancia una moneta</div>
-      <div class="file-pill"><code>/configshow</code> Configurazione attiva (Admin)</div>
-    </div>
-
-    <p class="note-small" style="font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:8px;">
-      I comandi con (Moderatori) o (Admin) richiedono i relativi permessi sul server per essere usati.
-    </p>
-  </section>
 </div>
 
-<!-- ═══════════════════════════════ FOOTER ══════════════════════════════ -->
-<footer>
-  <div class="footer-logo"><span>Carmelo</span> Bot</div>
-  <div class="footer-meta">bot Discord v34 • discord.py 2.x</div>
-  <div class="footer-copy">
-    &copy; 2026 <strong>wicknoob73 &amp; jeimaster.</strong> — Tutti i diritti riservati.<br>
-    Carmelo Bot non è affiliato né approvato da Discord Inc.
+<!-- ── Footer ─────────────────────────────────────────── -->
+
+<!-- ── Ultimi aggiornamenti ── -->
+<section style="position:relative;z-index:1;max-width:880px;margin:0 auto;padding:0 28px 80px;">
+  <div class="section-label">Novità</div>
+  <h2 style="font-family:var(--font-display);font-size:1.7rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:24px;">
+    Ultimi aggiornamenti
+  </h2>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+
+    <a href="changelog.html#vv57" style="text-decoration:none;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;display:flex;align-items:center;gap:16px;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='rgba(74,179,232,0.35)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.borderColor='rgba(74,179,232,0.12)';this.style.boxShadow='none'">
+        <span style="font-family:var(--font-mono);font-size:0.8rem;font-weight:700;color:var(--bg-base);background:var(--blue);border-radius:4px;padding:2px 8px;flex-shrink:0;">v57</span>
+        <span style="color:var(--text-secondary);font-size:0.88rem;flex:1;">Aggiunto controllo vocale centralizzato <code>_check_voice()</code> per tutti i comandi musicali</span>
+        <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);flex-shrink:0;">Giu 2026</span>
+      </div>
+    </a>
+
+    <a href="changelog.html#vv55-v56" style="text-decoration:none;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;display:flex;align-items:center;gap:16px;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='rgba(74,179,232,0.35)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.borderColor='rgba(74,179,232,0.12)';this.style.boxShadow='none'">
+        <span style="font-family:var(--font-mono);font-size:0.8rem;font-weight:700;color:var(--bg-base);background:var(--blue);border-radius:4px;padding:2px 8px;flex-shrink:0;">v55–56</span>
+        <span style="color:var(--text-secondary);font-size:0.88rem;flex:1;">Sistema compleanni, <code>/autoplay</code> e refresh automatico token Spotify</span>
+        <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);flex-shrink:0;">Giu 2026</span>
+      </div>
+    </a>
+
+    <a href="changelog.html#vv53-v54" style="text-decoration:none;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;display:flex;align-items:center;gap:16px;transition:border-color .2s,box-shadow .2s;" onmouseover="this.style.borderColor='rgba(74,179,232,0.35)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.borderColor='rgba(74,179,232,0.12)';this.style.boxShadow='none'">
+        <span style="font-family:var(--font-mono);font-size:0.8rem;font-weight:700;color:var(--bg-base);background:var(--blue);border-radius:4px;padding:2px 8px;flex-shrink:0;">v53–54</span>
+        <span style="color:var(--text-secondary);font-size:0.88rem;flex:1;">Embed Now Playing con logo piattaforma e autenticazione Spotify OAuth</span>
+        <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);flex-shrink:0;">Giu 2026</span>
+      </div>
+    </a>
+
   </div>
+  <a href="changelog.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:0.85rem;color:var(--text-muted);transition:color .2s;" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--text-muted)'">
+    Vedi tutto il changelog →
+  </a>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-brand"><span>Carmelo</span> Bot</div>
+    <div class="footer-meta">discord.py 2.x · v58 · 60+ comandi</div>
+    <div class="footer-copy">© 2026 wicknoob73 & jeimaster. — Non affiliato con Discord Inc.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="commands.html">Comandi</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+    <li><a href="stats.html">Statistiche</a></li>
+    <li><a href="legal.html">Termini di Servizio</a></li>
+    <li><a href="legal.html#privacy">Privacy Policy</a></li>
+    <li><a href="legal.html#contatti">Contatti</a></li>
+  </ul>
 </footer>
 
 <script>
-  // ── Stato reale del bot, letto dal widget pubblico Discord ──
-  // Richiede che il Widget Server sia attivo in:
-  // Impostazioni server → Engagement → Widget
-  const GUILD_ID = "1079422976249843762";
-  const BOT_NAME = "Carmelo Bot"; // username esatto del bot su Discord
+const GUILD_ID = "1079422976249843762";
+const BOT_NAME = "Carmelo Bot";
 
-  async function checkBotStatus() {
-    const badge = document.getElementById('bot-status-badge');
-    const dot   = document.getElementById('bot-status-dot');
-    const text  = document.getElementById('bot-status-text');
-
-    try {
-      const res = await fetch(`https://discord.com/api/guilds/${GUILD_ID}/widget.json`);
-      if (!res.ok) throw new Error('widget non disponibile');
-      const data = await res.json();
-
-      const bot = (data.members || []).find(m => m.username === BOT_NAME);
-
-      if (bot) {
-        dot.style.background = '#2dd4bf';
-        dot.style.boxShadow = '0 0 6px #2dd4bf';
-        text.textContent = 'Bot Discord attivo';
-      } else {
-        dot.style.background = '#6b7280';
-        dot.style.boxShadow = 'none';
-        text.textContent = 'Bot Discord offline';
-        badge.style.opacity = '0.75';
-      }
-    } catch (err) {
-      // Widget non attivo o errore di rete: stato sconosciuto, non mostriamo un falso "attivo"
-      dot.style.background = '#6b7280';
+async function checkStatus() {
+  const dot   = document.getElementById('status-dot');
+  const text  = document.getElementById('status-text');
+  const badge = document.getElementById('status-badge');
+  try {
+    const res = await fetch(`https://discord.com/api/guilds/${GUILD_ID}/widget.json`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const bot = (data.members || []).find(m => m.username === BOT_NAME);
+    if (bot) {
+      dot.style.background = 'var(--teal)';
+      dot.style.boxShadow = '0 0 6px var(--teal)';
+      text.textContent = 'Bot online';
+    } else {
+      dot.style.background = '#555e72';
       dot.style.boxShadow = 'none';
-      text.textContent = 'Stato non disponibile';
-      badge.style.opacity = '0.6';
+      text.textContent = 'Bot offline';
+      badge.style.opacity = '0.65';
     }
+  } catch {
+    dot.style.background = '#555e72';
+    dot.style.boxShadow = 'none';
+    text.textContent = 'Stato sconosciuto';
+    badge.style.opacity = '0.55';
   }
+}
 
-  checkBotStatus();
-  setInterval(checkBotStatus, 60000); // riprova ogni 60 secondi
+checkStatus();
+setInterval(checkStatus, 60000);
 </script>
+
+
+<button class="back-to-top" id="backToTop" aria-label="Torna su">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
 
 <script>
-  // Evidenzia la nav pill in base alla sezione visibile
-  const pills = document.querySelectorAll('.nav-pill');
-  const sections = document.querySelectorAll('section[id]');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        pills.forEach(p => p.classList.remove('active'));
-        const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => observer.observe(s));
+// Hamburger
+const ham = document.getElementById('hamburgerBtn');
+const mob = document.getElementById('mobileMenu');
+if (ham && mob) {
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  document.addEventListener('click', e => {
+    if (!ham.contains(e.target) && !mob.contains(e.target)) {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    }
+  });
+}
+// Back to top
+const btt = document.getElementById('backToTop');
+if (btt) {
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
 </script>
-
 </body>
 </html>
